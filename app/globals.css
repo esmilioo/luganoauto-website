@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-noir: #08080a;
+  --color-graphite: #0f1015;
+  --color-surface: #14161d;
+  --color-line: rgba(245, 245, 245, 0.08);
+
+  /* Text */
+  --color-titanium: #f5f5f5;
+  --color-titanium-muted: #a3a3a3;
+
+  /* Accents */
+  --color-crimson: #ff2e4c;
+  --color-gold: #d4af37;
+
+  /* Typography families */
+  --font-display: var(--font-space-grotesk), "Inter Display", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Fluid type scale */
+  --text-display: clamp(3.5rem, 9vw, 10rem);
+  --text-heading: clamp(2rem, 4.5vw, 4.5rem);
+  --text-subheading: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+  --text-body: 1.0625rem;
+  --text-caption: 0.75rem;
+
+  /* Motion */
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-noir);
+    color: var(--color-titanium);
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-crimson);
+    color: white;
+  }
+
+  /* Scrollbar minimal */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-noir);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2d38;
+  }
+
+  /* Disciplina tipografica */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* Superficie solida (no glass) */
+  .surface {
+    background: var(--color-graphite);
+    border: 1px solid var(--color-line);
+  }
+  .surface-elevated {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+  }
+  .hairline {
+    border-color: var(--color-line);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
